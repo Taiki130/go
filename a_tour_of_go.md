@@ -74,7 +74,7 @@ func main() {
 ## Basic types
 Go言語の基本型(組み込み型)
 
-```go
+```
 bool
 
 string
@@ -90,4 +90,12 @@ rune // int32 の別名
 float32 float64
 
 complex64 complex128
+```
+
+## Zero values
+変数に初期値を与えずに宣言すると、ゼロ値( zero value )が与えられる
+```
+数値型(int,floatなど): 0
+bool型: false
+string型: "" (空文字列( empty string ))
 ```
