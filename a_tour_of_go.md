@@ -125,3 +125,13 @@ i := 42           // int
 f := 3.142        // float64
 g := 0.867 + 0.5i // complex128
 ```
+
+## Constants
+定数( constant )は、 const キーワードを使って変数と同じように宣言する
+定数は、**文字(character)、文字列(string)、boolean、数値(numeric)のみ**で使える
+```go
+const Pi = 3.14
+const World = "世界"
+const Truth = true
+```
+
