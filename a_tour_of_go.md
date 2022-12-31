@@ -250,3 +250,8 @@ default:
 	fmt.Printf("%s.\n", os)
 }
 ```
+
+## Switch evaluation order
+switch caseは、上から下へcaseを評価する
+caseの条件が一致すれば、そこで停止(自動的にbreak)する
+
