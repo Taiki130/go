@@ -212,3 +212,24 @@ func sqrt(x float64) string {
 	return fmt.Sprint(math.Sqrt(x))
 }
 ```
+
+## If with a short statement
+if ステートメントは、 for のように、条件の前に、評価するための簡単なステートメントを書くことができる
+ここで宣言された変数は、 if のスコープ内だけで有効
+```go
+func pow(x, n, lim float64) float64 {
+	if v := math.Pow(x, n); v < lim {
+		return v
+	}
+	return lim
+}
+```
+
+## If and else
+```go
+	if v := math.Pow(x, n); v < lim {
+		return v
+	} else {
+		fmt.Printf("%g >= %g\n", v, lim)
+	}
+```
