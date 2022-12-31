@@ -525,3 +525,16 @@ func printSlice(s []int) {
 
 ## Nil slices
 - スライスのゼロ値は nil
+## Creating a slice with make
+- スライスは、組み込みの make 関数を使用して作成することができる
+- make 関数はゼロ化された配列を割り当て、その配列を指すスライスを返す
+```go
+a := make([]int, 5)  // len(a)=5
+```
+- make の3番目の引数に、スライスの容量( capacity )を指定できる
+- cap(b) で、スライスの容量を返す
+```go
+b := make([]int, 0, 5) // len(b)=0, cap(b)=5
+b = b[:cap(b)] // len(b)=5, cap(b)=5
+b = b[1:]      // len(b)=4, cap(b)=4
+```
