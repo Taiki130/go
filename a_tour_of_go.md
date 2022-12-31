@@ -1,3 +1,4 @@
+メモしていく
 # Packages, variables, and functions.
 ## Functions
 関数は、0個以上の引数を取ることができる
@@ -110,4 +111,17 @@ var u uint = uint(f)
 i := 42
 f := float64(i)
 u := uint(f)
+```
+
+## Type inference
+右側の変数が型を持っている場合、左側の新しい変数は同じ型になる
+```go
+var i int
+j := i // j is an int
+```
+右側に型を指定しない数値である場合、左側の新しい変数は右側の定数の精度に基いて int, float64, complex128 の型になる
+```go
+i := 42           // int
+f := 3.142        // float64
+g := 0.867 + 0.5i // complex128
 ```
