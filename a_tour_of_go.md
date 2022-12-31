@@ -183,3 +183,13 @@ for ; sum < 1000; {
 	sum += sum
 }
 ```
+
+## For is Go's "while"
+セミコロン(;)を省略することもできる
+C言語などにある while は、Goでは for だけを使う
+```go
+sum := 1
+for sum < 1000 {
+	sum += sum
+}
+```
