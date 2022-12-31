@@ -407,3 +407,59 @@ primes := [6]int{2, 3, 5, 7, 11, 13}
 var s []int = primes[1:4]
 ```
 
+## Slices are like references to arrays
+- スライスは配列への参照
+- スライスの要素を変更すると、その元となる配列の対応する要素が変更される
+- 同じ元となる配列を共有している他のスライスは、それらの変更が反映される
+
+```go
+func main() {
+	names := [4]string{
+		"John",
+		"Paul",
+		"George",
+		"Ringo",
+	}
+	fmt.Println(names)
+
+	a := names[0:2]
+	b := names[1:3]
+	fmt.Println(a, b)
+
+	b[0] = "XXX"
+	fmt.Println(a, b)
+	fmt.Println(names)
+}
+// [John Paul George Ringo]
+// [John Paul] [Paul George]
+// [John XXX] [XXX George]
+// [John XXX George Ringo]
+```
+
+## Slice literals
+- スライスのリテラルは長さのない配列リテラルのようなもの
+```go
+func main() {
+	q := []int{2, 3, 5, 7, 11, 13}
+	fmt.Println(q)
+
+	r := []bool{true, false, true, true, false, true}
+	fmt.Println(r)
+
+	s := []struct {
+		i int
+		b bool
+	}{
+		{2, true},
+		{3, false},
+		{5, true},
+		{7, true},
+		{11, false},
+		{13, true},
+	}
+	fmt.Println(s)
+}
+```
+<!-- [2 3 5 7 11 13]
+[true false true true false true]
+[{2 true} {3 false} {5 true} {7 true} {11 false} {13 true}] -->
