@@ -255,3 +255,20 @@ default:
 - switch caseは、上から下へcaseを評価する
 - caseの条件が一致すれば、そこで停止(自動的にbreak)する
 
+## Switch with no condition
+- 条件のないswitchは、 switch true と書くことと同じ
+
+## Defer
+- defer ステートメントは、 defer へ渡した関数の実行を、呼び出し元の関数の終わり(returnする)まで遅延させるもの
+- defer へ渡した関数の引数は、すぐに評価されるが、その関数自体は呼び出し元の関数がreturnするまで実行されない
+
+```go
+func main() {
+	defer fmt.Println("world")
+
+	fmt.Println("hello")
+}
+// hello
+// world
+```
+
