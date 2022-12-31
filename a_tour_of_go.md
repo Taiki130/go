@@ -175,3 +175,11 @@ for i := 0; i < 10; i++ {
 	sum += i
 }
 ```
+
+## For continued
+初期化と後処理ステートメントの記述は任意
+```go
+for ; sum < 1000; {
+	sum += sum
+}
+```
