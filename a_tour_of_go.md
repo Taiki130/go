@@ -53,7 +53,7 @@ var c, python, java bool
 ## Variables with initializers
 var 宣言では、変数毎に初期化子( initializer )を与えることができる
 初期化子が与えられている場合、型を省略できる
-その変数は初期化子が持つ型になる
+その変数は**初期化子が持つ型**になる
 ```go
 var i, j int = 1, 2
 var c, python, java = true, false, "no!"
@@ -98,4 +98,16 @@ complex64 complex128
 数値型(int,floatなど): 0
 bool型: false
 string型: "" (空文字列( empty string ))
+```
+
+## Type conversions
+変数 v 、型 T があった場合、 T(v) は、変数 v を T 型へ変換する
+
+```go
+var i int = 42
+var f float64 = float64(i)
+var u uint = uint(f)
+i := 42
+f := float64(i)
+u := uint(f)
 ```
