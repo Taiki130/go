@@ -299,3 +299,21 @@ func main() {
 // 1
 // 0
 ```
+
+# More types: structs, slices, and maps.
+## Pointers
+https://zenn.dev/genki86web/articles/a0ae1d57ad1806
+- 変数 T のポインタは、 *T 型で、ゼロ値は nil
+```go
+var p *int
+```
+- & オペレータは、そのオペランド( operand )へのポインタを引き出す
+```go
+i := 42
+p = &i
+```
+- * オペレータは、ポインタの指す先の変数を示す
+```go
+fmt.Println(*p) // ポインタpを通してiから値を読みだす
+*p = 21         // ポインタpを通してiへ値を代入する
+```
