@@ -377,3 +377,20 @@ var (
 	p  = &Vertex{1, 2} // has type *Vertex
 )
 ```
+
+## Arrays
+- [n]T 型は、型 T の n 個の変数の配列( array )を表す
+- 配列の長さは、型の一部分
+- 配列のサイズを変えることはできない
+```go
+func main() {
+	var a [2]string
+	a[0] = "Hello"
+	a[1] = "World"
+	fmt.Println(a[0], a[1])
+	fmt.Println(a)
+
+	primes := [6]int{2, 3, 5, 7, 11, 13}
+	fmt.Println(primes)
+}
+```
