@@ -56,4 +56,17 @@ var 宣言では、変数毎に初期化子( initializer )を与えることが�
 その変数は初期化子が持つ型になる
 ```go
 var i, j int = 1, 2
+var c, python, java = true, false, "no!"
+```
+
+## Short variable declarations
+**関数の中**では、 var 宣言の代わりに、短い := の代入文を使い、暗黙的な型宣言ができる
+```go
+func main() {
+	var i, j int = 1, 2
+	k := 3
+	c, python, java := true, false, "no!"
+
+	fmt.Println(i, j, k, c, python, java)
+}
 ```
