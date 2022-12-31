@@ -317,9 +317,12 @@ p = &i
 fmt.Println(*p) // ポインタpを通してiから値を読みだす
 *p = 21         // ポインタpを通してiへ値を代入する
 ```
+- fmt.Println(*p)すると、ポインタpにある変数の値を引き出せる？
 
 ## Structs
+https://zenn.dev/marietty/articles/b3e0efd8e92078
 - struct (構造体)は、フィールド( field )の集まり
+- クラスの代わりのような機能をもつ
 ```go
 type Vertex struct {
 	X int
@@ -340,4 +343,37 @@ func main() {
 	v.X = 4
 	fmt.Println(v.X)
 }
+```
+
+## Pointers to structs
+```go
+type Vertex struct {
+	X int
+	Y int
+}
+
+func main() {
+	v := Vertex{1, 2}
+	p := &v
+	p.X = 1e9
+	fmt.Println(v)
+}
+```
+
+## Struct Literals
+- structリテラルは、フィールドの値を列挙することで新しいstructの初期値の割り当てを示す
+- Name: 構文を使って、フィールドの一部だけを列挙することができる
+- & を頭に付けると、新しく割り当てられたstructへのポインタを戻す
+
+```go
+type Vertex struct {
+	X, Y int
+}
+
+var (
+	v1 = Vertex{1, 2}  // has type Vertex
+	v2 = Vertex{X: 1}  // Y:0 is implicit
+	v3 = Vertex{}      // X:0 and Y:0
+	p  = &Vertex{1, 2} // has type *Vertex
+)
 ```
