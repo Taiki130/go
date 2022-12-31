@@ -193,3 +193,13 @@ for sum < 1000 {
 	sum += sum
 }
 ```
+
+## Forever
+ループ条件を省略すれば、無限ループ( infinite loop )になるので、無限ループをコンパクトに表現できる
+```go
+func main() {
+	for {
+	}
+}
+```
+
