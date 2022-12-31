@@ -459,7 +459,69 @@ func main() {
 	}
 	fmt.Println(s)
 }
+// [2 3 5 7 11 13]
+// [true false true true false true]
+// [{2 true} {3 false} {5 true} {7 true} {11 false} {13 true}]
 ```
-<!-- [2 3 5 7 11 13]
-[true false true true false true]
-[{2 true} {3 false} {5 true} {7 true} {11 false} {13 true}] -->
+
+
+## Slice defaults
+- スライスするときは、それらの既定値を代わりに使用することで上限または下限を省略できる
+- 既定値は下限が 0 で上限はスライスの長さ
+- これらのスライス式は等価
+```go
+a[0:10]
+a[:10]
+a[0:]
+a[:]
+```
+```go
+func main() {
+	s := []int{2, 3, 5, 7, 11, 13}
+
+	s = s[1:4]
+	fmt.Println(s)
+
+	s = s[:2]
+	fmt.Println(s)
+
+	s = s[1:]
+	fmt.Println(s)
+}
+```
+
+## Slice length and capacity
+- スライスは長さ( length )と容量( capacity )の両方を持っている
+- スライスの長さは、それに含まれる要素の数
+- スライスの容量は、スライスの最初の要素から数えて、元となる配列の要素数
+- スライス s の長さと容量は len(s) と cap(s) という式を使用して得ることができる
+- 十分な容量を持って提供されているスライスを再スライスすることによって、スライスの長さを伸ばすことができる
+```go
+func main() {
+	s := []int{2, 3, 5, 7, 11, 13}
+	printSlice(s)
+
+	// Slice the slice to give it zero length.
+	s = s[:0]
+	printSlice(s)
+
+	// Extend its length.
+	s = s[:4]
+	printSlice(s)
+
+	// Drop its first two values.
+	s = s[2:]
+	printSlice(s)
+}
+
+func printSlice(s []int) {
+	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+}
+// len=6 cap=6 [2 3 5 7 11 13]
+// len=0 cap=6 []
+// len=4 cap=6 [2 3 5 7]
+// len=2 cap=4 [5 7]
+```
+
+## Nil slices
+- スライスのゼロ値は nil
