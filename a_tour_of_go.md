@@ -394,3 +394,16 @@ func main() {
 	fmt.Println(primes)
 }
 ```
+
+## Slices
+- 配列は固定長
+- スライスは可変長、より柔軟な配列とみなすことができる
+- 型 []T は 型 T のスライスを表す
+```go
+a[low : high]
+```
+```go
+primes := [6]int{2, 3, 5, 7, 11, 13}
+var s []int = primes[1:4]
+```
+
