@@ -1,8 +1,8 @@
 メモしていく
 # Packages, variables, and functions.
 ## Functions
-関数は、0個以上の引数を取ることができる
-変数名の 後ろ に型名を書く
+- 関数は、0個以上の引数を取ることができる
+- 変数名の 後ろ に型名を書く
 ```go
 func add(x int, y int) int {
 	return x + y
@@ -14,7 +14,7 @@ func main() {
 ```
 
 ## Functions continued
-関数の２つ以上の引数が同じ型である場合には、最後の型を残して省略して記述できる
+- 関数の２つ以上の引数が同じ型である場合には、最後の型を残して省略して記述できる
 
 ```go
 x int, y int
@@ -24,7 +24,7 @@ x, y int
 ```
 
 ## Multiple results
-関数は複数の戻り値を返すことができる
+- 関数は複数の戻り値を返すことができる
 
 ```go
 func swap(x, y string) (string, string) {
@@ -33,9 +33,9 @@ func swap(x, y string) (string, string) {
 ```
 
 ## Named return values
-Goでの戻り値となる変数に名前をつける( named return value )ことができる
-naked returnステートメントは、短い関数でのみ利用すべき
-長い関数で使うと可読性が下がる
+- Goでの戻り値となる変数に名前をつける( named return value )ことができる
+- naked returnステートメントは、短い関数でのみ利用すべき
+- 長い関数で使うと可読性が下がる
 
 ```go
 func split(sum int) (x, y int) {
@@ -45,23 +45,23 @@ func split(sum int) (x, y int) {
 }
 ```
 ## Variables
-var ステートメントは変数( variable )を宣言
-関数の引数リストと同様に、複数の変数の最後に型を書くことで、変数のリストを宣言できる
+- var ステートメントは変数( variable )を宣言
+- 関数の引数リストと同様に、複数の変数の最後に型を書くことで、変数のリストを宣言できる
 ```go
 var c, python, java bool
 ```
 
 ## Variables with initializers
-var 宣言では、変数毎に初期化子( initializer )を与えることができる
-初期化子が与えられている場合、型を省略できる
-その変数は**初期化子が持つ型**になる
+- var 宣言では、変数毎に初期化子( initializer )を与えることができる
+- 初期化子が与えられている場合、型を省略できる
+- その変数は**初期化子が持つ型**になる
 ```go
 var i, j int = 1, 2
 var c, python, java = true, false, "no!"
 ```
 
 ## Short variable declarations
-**関数の中**では、 var 宣言の代わりに、短い := の代入文を使い、暗黙的な型宣言ができる
+- **関数の中**では、 var 宣言の代わりに、短い := の代入文を使い、暗黙的な型宣言ができる
 ```go
 func main() {
 	var i, j int = 1, 2
@@ -73,7 +73,7 @@ func main() {
 ```
 
 ## Basic types
-Go言語の基本型(組み込み型)
+- Go言語の基本型(組み込み型)
 
 ```
 bool
@@ -94,7 +94,7 @@ complex64 complex128
 ```
 
 ## Zero values
-変数に初期値を与えずに宣言すると、ゼロ値( zero value )が与えられる
+- 変数に初期値を与えずに宣言すると、ゼロ値( zero value )が与えられる
 ```
 数値型(int,floatなど): 0
 bool型: false
@@ -102,7 +102,7 @@ string型: "" (空文字列( empty string ))
 ```
 
 ## Type conversions
-変数 v 、型 T があった場合、 T(v) は、変数 v を T 型へ変換する
+- 変数 v 、型 T があった場合、 T(v) は、変数 v を T 型へ変換する
 
 ```go
 var i int = 42
@@ -114,12 +114,12 @@ u := uint(f)
 ```
 
 ## Type inference
-右側の変数が型を持っている場合、左側の新しい変数は同じ型になる
+- 右側の変数が型を持っている場合、左側の新しい変数は同じ型になる
 ```go
 var i int
 j := i // j is an int
 ```
-右側に型を指定しない数値である場合、左側の新しい変数は右側の定数の精度に基いて int, float64, complex128 の型になる
+- 右側に型を指定しない数値である場合、左側の新しい変数は右側の定数の精度に基いて int, float64, complex128 の型になる
 ```go
 i := 42           // int
 f := 3.142        // float64
@@ -127,8 +127,8 @@ g := 0.867 + 0.5i // complex128
 ```
 
 ## Constants
-定数( constant )は、 const キーワードを使って変数と同じように宣言する
-定数は、**文字(character)、文字列(string)、boolean、数値(numeric)のみ**で使える
+- 定数( constant )は、 const キーワードを使って変数と同じように宣言する
+- 定数は、**文字(character)、文字列(string)、boolean、数値(numeric)のみ**で使える
 ```go
 const Pi = 3.14
 const World = "世界"
@@ -136,7 +136,7 @@ const Truth = true
 ```
 
 ## Numeric Constants
-数値の定数は、高精度な 値 ( values )
+- 数値の定数は、高精度な 値 ( values )
 ```go
 package main
 
@@ -167,9 +167,9 @@ func main() {
 
 # Flow control statements: for, if, else, switch and defer
 ## For
-初期化ステートメント: 最初のイテレーション(繰り返し)の前に初期化が実行される
-条件式: イテレーション毎に評価される
-後処理ステートメント: イテレーション毎の最後に実行される
+- 初期化ステートメント: 最初のイテレーション(繰り返し)の前に初期化が実行される
+- 条件式: イテレーション毎に評価される
+- 後処理ステートメント: イテレーション毎の最後に実行される
 ```go
 for i := 0; i < 10; i++ {
 	sum += i
@@ -177,7 +177,7 @@ for i := 0; i < 10; i++ {
 ```
 
 ## For continued
-初期化と後処理ステートメントの記述は任意
+- 初期化と後処理ステートメントの記述は任意
 ```go
 for ; sum < 1000; {
 	sum += sum
@@ -185,8 +185,8 @@ for ; sum < 1000; {
 ```
 
 ## For is Go's "while"
-セミコロン(;)を省略することもできる
-C言語などにある while は、Goでは for だけを使う
+- セミコロン(;)を省略することもできる
+- C言語などにある while は、Goでは for だけを使う
 ```go
 sum := 1
 for sum < 1000 {
@@ -195,7 +195,7 @@ for sum < 1000 {
 ```
 
 ## Forever
-ループ条件を省略すれば、無限ループ( infinite loop )になるので、無限ループをコンパクトに表現できる
+- ループ条件を省略すれば、無限ループ( infinite loop )になるので、無限ループをコンパクトに表現できる
 ```go
 func main() {
 	for {
@@ -214,8 +214,8 @@ func sqrt(x float64) string {
 ```
 
 ## If with a short statement
-if ステートメントは、 for のように、条件の前に、評価するための簡単なステートメントを書くことができる
-ここで宣言された変数は、 if のスコープ内だけで有効
+- if ステートメントは、 for のように、条件の前に、評価するための簡単なステートメントを書くことができる
+- ここで宣言された変数は、 if のスコープ内だけで有効
 ```go
 func pow(x, n, lim float64) float64 {
 	if v := math.Pow(x, n); v < lim {
@@ -235,9 +235,9 @@ func pow(x, n, lim float64) float64 {
 ```
 
 ## Switch
-Go では選択された case だけを実行してそれに続く全ての case は実行されない
-これらの言語の各 case の最後に必要な break ステートメントが Go では自動的に提供される
-Go の switch の case は定数である必要はなく、 関係する値は整数である必要はない
+- Go では選択された case だけを実行してそれに続く全ての case は実行されない
+- これらの言語の各 case の最後に必要な break ステートメントが Go では自動的に提供される
+- Go の switch の case は定数である必要はなく、 関係する値は整数である必要はない
 ```go
 switch os := runtime.GOOS; os {
 case "darwin":
@@ -252,6 +252,6 @@ default:
 ```
 
 ## Switch evaluation order
-switch caseは、上から下へcaseを評価する
-caseの条件が一致すれば、そこで停止(自動的にbreak)する
+- switch caseは、上から下へcaseを評価する
+- caseの条件が一致すれば、そこで停止(自動的にbreak)する
 
