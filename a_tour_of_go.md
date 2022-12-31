@@ -317,3 +317,27 @@ p = &i
 fmt.Println(*p) // ポインタpを通してiから値を読みだす
 *p = 21         // ポインタpを通してiへ値を代入する
 ```
+
+## Structs
+- struct (構造体)は、フィールド( field )の集まり
+```go
+type Vertex struct {
+	X int
+	Y int
+}
+```
+
+## Struct Fields
+- structのフィールドは、ドット( . )を用いてアクセスする
+```go
+type Vertex struct {
+	X int
+	Y int
+}
+
+func main() {
+	v := Vertex{1, 2}
+	v.X = 4
+	fmt.Println(v.X)
+}
+```
