@@ -726,3 +726,38 @@ func main() {
 }
 ```
 
+## Methods continued
+- レシーバを伴うメソッドの宣言は、レシーバ型が同じパッケージにある必要がある
+- 他のパッケージに定義している型に対して、レシーバを伴うメソッドを宣言できない
+https://skatsuta.github.io/2015/12/29/value-receiver-pointer-receiver/
+## Pointer receivers
+- ポインタレシーバでメソッドを宣言できる
+
+### 値レシーバ
+```go
+type Person struct{ Name string }
+
+// Person 型に対してメソッドを定義する
+func (p Person) Greet(msg string) {
+    fmt.Printf("%s, I'm %s.\n", msg, p.Name)
+}
+
+func main() {
+    p := Person{Name: "Taro"} // 値型の変数を用意する
+    p.Greet("Hi")             //=> Hi, I'm Taro.
+}
+```
+### ポインタレシーバ
+```go
+type Person struct{ Name string }
+
+// *Person 型に対してメソッドを定義する
+func (pp *Person) Shout(msg string) {
+    fmt.Printf("%s!!!\n", msg)
+}
+
+func main() {
+    pp := &Person{Name: "Taro"} // ポインタ型の変数を用意する
+    pp.Shout("OH MY GOD")       //=> OH MY GOD!!!
+}
+```
