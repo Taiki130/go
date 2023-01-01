@@ -729,10 +729,10 @@ func main() {
 ## Methods continued
 - レシーバを伴うメソッドの宣言は、レシーバ型が同じパッケージにある必要がある
 - 他のパッケージに定義している型に対して、レシーバを伴うメソッドを宣言できない
-https://skatsuta.github.io/2015/12/29/value-receiver-pointer-receiver/
+
 ## Pointer receivers
 - ポインタレシーバでメソッドを宣言できる
-
+https://tech.notti.link/4810dcb
 ### 値レシーバ
 ```go
 type Person struct{ Name string }
@@ -747,6 +747,10 @@ func main() {
     p.Greet("Hi")             //=> Hi, I'm Taro.
 }
 ```
+- メソッドによってレシーバが指す変数を上書きできたら困るとき
+- Getter として使う場合
+- 参照だけであることを明示できる
+
 ### ポインタレシーバ
 ```go
 type Person struct{ Name string }
@@ -760,4 +764,19 @@ func main() {
     pp := &Person{Name: "Taro"} // ポインタ型の変数を用意する
     pp.Shout("OH MY GOD")       //=> OH MY GOD!!!
 }
+```
+- メソッド内でレシーバが指す変数を上書きする必要があるとき
+- メソッドを呼び出すたびに変数がコピーされるとまずいとき
+- レシーバが巨大な変数である場合に有効
+
+- 基本的にはポインタレシーバを使い、レシーバが指す変数が上書きされないことを保証したいときだけ値レシーバを使うことが多い印象
+
+## Methods and pointer indirection
+- メソッドがポインタレシーバである場合、呼び出し時に、変数、または、ポインタのいずれかのレシーバとして取ることができる
+- Scale メソッドはポインタレシーバを持つ場合、Goは利便性のため、 v.Scale(5) のステートメントを (&v).Scale(5) として解釈する
+```go
+var v Vertex
+v.Scale(5)  // OK
+p := &v
+p.Scale(10) // OK
 ```
