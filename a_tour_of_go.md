@@ -538,3 +538,51 @@ b := make([]int, 0, 5) // len(b)=0, cap(b)=5
 b = b[:cap(b)] // len(b)=5, cap(b)=5
 b = b[1:]      // len(b)=4, cap(b)=4
 ```
+
+## Slices of slices
+- スライスは、他のスライスを含む任意の型を含むことができる
+```go
+func main() {
+	// Create a tic-tac-toe board.
+	board := [][]string{
+		[]string{"_", "_", "_"},
+		[]string{"_", "_", "_"},
+		[]string{"_", "_", "_"},
+	}
+
+	// The players take turns.
+	board[0][0] = "X"
+	board[2][2] = "O"
+	board[1][2] = "X"
+	board[1][0] = "O"
+	board[0][2] = "X"
+
+	for i := 0; i < len(board); i++ {
+		fmt.Printf("%s\n", strings.Join(board[i], " "))
+	}
+}
+```
+
+## Appending to a slice
+- append への最初のパラメータ s は、追加元となる T 型のスライス
+- パラメータ s は、追加元となる T 型のスライスです。 残りの vs は、追加する T 型の変数群
+- もし、元の配列 s が、変数群を追加する際に容量が小さい場合は、より大きいサイズの配列を割り当て直す
+- その場合、戻り値となるスライスは、新しい割当先を示すようになる
+```go
+func append(s []T, vs ...T) []T
+```
+
+```go
+var s []int
+// []
+
+s = append(s, 0)
+// [0]
+
+s = append(s, 1)
+// [0 1]
+
+s = append(s, 2, 3, 4)
+// [0 1 2 3 4]
+```
+
