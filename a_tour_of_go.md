@@ -642,3 +642,17 @@ var m = map[string]Vertex{
 	},
 }
 ```
+
+## Map literals continued
+- mapに渡すトップレベルの型が単純な型名である場合は、リテラルの要素から推定できるので、その型名を省略することができる
+```go
+type Vertex struct {
+	Lat, Long float64
+}
+
+var m = map[string]Vertex{
+	"Bell Labs": {40.68433, -74.39967},
+	"Google":    {37.42202, -122.08408},
+}
+```
+
