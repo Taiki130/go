@@ -687,3 +687,42 @@ func compute(fn func(float64, float64) float64) float64 {
 - Goの関数は クロージャ( closure ) 
 - クロージャは、それ自身の外部から変数を参照する関数値
 
+# Methods and interfaces
+## Methods
+- 型にメソッド( method )を定義できる
+- メソッドは、特別なレシーバ( receiver )引数を関数に取る
+- レシーバは、 func キーワードとメソッド名の間に自身の引数リストで表現する
+```go
+type Vertex struct {
+	X, Y float64
+}
+
+func (v Vertex) Abs() float64 {
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
+func main() {
+	v := Vertex{3, 4}
+	fmt.Println(v.Abs())
+}
+```
+- Abs メソッドは v という名前の Vertex 型のレシーバを持つことを意味している
+-> Vertex型にメソッドを定義しているってこと？
+
+## Methods are functions
+- 先程のメソッドを通常の関数として記述すると以下
+```go
+type Vertex struct {
+	X, Y float64
+}
+
+func Abs(v Vertex) float64 {
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
+func main() {
+	v := Vertex{3, 4}
+	fmt.Println(Abs(v))
+}
+```
+
