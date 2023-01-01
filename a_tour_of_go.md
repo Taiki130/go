@@ -780,3 +780,19 @@ v.Scale(5)  // OK
 p := &v
 p.Scale(10) // OK
 ```
+
+- 変数の引数を取る関数は、特定の型の変数を取る必要がある
+```go
+var v Vertex
+fmt.Println(AbsFunc(v))  // OK
+fmt.Println(AbsFunc(&v)) // Compile error!
+// &vに型はないため？
+```
+- メソッドが変数レシーバである場合、呼び出し時に、変数、または、ポインタのいずれかのレシーバとして取ることができる
+```go
+var v Vertex
+fmt.Println(v.Abs()) // OK
+p := &v
+fmt.Println(p.Abs()) // OK
+```
+- この場合、 p.Abs() は (*p).Abs() として解釈される
