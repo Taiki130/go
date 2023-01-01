@@ -608,3 +608,26 @@ func main() {
 // 2**6 = 64
 // 2**7 = 128
 ```
+## Range continued
+- インデックスや値は、 " _ "(アンダーバー) へ代入することで捨てることができる
+```go
+for i, _ := range pow
+for _, value := range pow
+```
+- もしインデックスだけが必要なのであれば、2つ目の値を省略する
+```go
+for i := range pow
+```
+
+## Maps
+- マップのゼロ値は nil
+- nil マップはキーを持っておらず、またキーを追加することもできない
+- make 関数は指定された型のマップを初期化して、使用可能な状態で返す
+
+```go
+	m = make(map[string]Vertex)
+	m["Bell Labs"] = Vertex{
+		40.68433, -74.39967,
+	}
+```
+
