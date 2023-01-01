@@ -675,3 +675,15 @@ delete(m, key)
 elem, ok = m[key]
 ```
 - m に key があれば、変数 ok は true となり、存在しなければ、 ok は false となる
+
+## Function values
+```go
+func compute(fn func(float64, float64) float64) float64 {
+	return fn(3, 4)
+}
+```
+
+## Function closures
+- Goの関数は クロージャ( closure ) 
+- クロージャは、それ自身の外部から変数を参照する関数値
+
