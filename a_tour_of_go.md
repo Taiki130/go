@@ -656,3 +656,22 @@ var m = map[string]Vertex{
 }
 ```
 
+## Mutating Maps
+
+- m へ要素(elem)の挿入や更新
+```go
+m[key] = elem
+```
+- 要素の取得
+```go
+elem = m[key]
+```
+- 要素の削除
+```go
+delete(m, key)
+```
+- キーに対する要素が存在するかどうかは、2つの目の値で確認
+```go
+elem, ok = m[key]
+```
+- m に key があれば、変数 ok は true となり、存在しなければ、 ok は false となる
