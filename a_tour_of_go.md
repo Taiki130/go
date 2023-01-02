@@ -818,3 +818,27 @@ func main() {
 }
 ```
 
+## The empty interface
+- ゼロ個のメソッドを指定されたインターフェース型は、 空のインターフェース と呼ばれる
+- 空のインターフェースは、任意の型の値を保持できる
+- 空のインターフェースは、未知の型の値を扱うコードで使用される
+```go
+interface{}
+```
+
+```go
+func main() {
+	var i interface{}
+	describe(i)
+
+	i = 42
+	describe(i)
+
+	i = "hello"
+	describe(i)
+}
+
+func describe(i interface{}) {
+	fmt.Printf("(%v, %T)\n", i, i)
+}
+```
