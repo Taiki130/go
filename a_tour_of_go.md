@@ -796,3 +796,25 @@ p := &v
 fmt.Println(p.Abs()) // OK
 ```
 - この場合、 p.Abs() は (*p).Abs() として解釈される
+
+## Interfaces are implemented implicitly
+- Interfaceはメソッドの塊
+- Interfaceが期待するメソッド（例ではFuncA,FuncB）をすべて満たした変数には、自動的にInterfaceが実装される
+- Interfaceを満たした変数はInterfaceへ代入することができる
+```go
+type Hoge interface {
+	FuncA()
+        FuncB()
+}
+
+type Foo struct {}
+
+func (f *Foo) FuncA() {}
+func (f *Foo) FuncB() {}
+
+func main() {
+        var hoge Hoge
+        hoge = Foo{..}       // HogeインターフェースにFoo構造体を代入できる
+}
+```
+
