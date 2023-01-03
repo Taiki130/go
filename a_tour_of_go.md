@@ -842,3 +842,29 @@ func describe(i interface{}) {
 	fmt.Printf("(%v, %T)\n", i, i)
 }
 ```
+
+## Type assertions
+- 型アサーション は、インターフェースの値の基になる具体的な値を利用する手段を提供する
+- i が T を保持していない場合、この文は panic を引き起こす
+```go
+t := i.(T)
+```
+- i が T を保持していれば、 t は基になる値になり、 ok は真(true)になる
+- そうでなければ、 ok は偽(false)になり、 t は型 T のゼロ値になり panic は起きない
+```go
+func main() {
+	var i interface{} = "hello"
+
+	s := i.(string)
+	fmt.Println(s) // hello
+
+	s, ok := i.(string)
+	fmt.Println(s, ok) // hello true
+
+	f, ok := i.(float64)
+	fmt.Println(f, ok) // 0 false
+
+	f = i.(float64) // panic
+	fmt.Println(f)
+}
+```
