@@ -909,3 +909,11 @@ type Stringer interface {
     String() string
 }
 ```
+
+## Errors
+- Goのプログラムは、エラーの状態を error 値で表現
+```go
+type error interface {
+    Error() string
+}
+```
