@@ -901,3 +901,11 @@ func main() {
 	do(true)
 }
 ```
+
+## Stringers
+- Stringer インタフェースは、stringとして表現することができる型
+```go
+type Stringer interface {
+    String() string
+}
+```
