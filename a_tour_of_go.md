@@ -929,3 +929,9 @@ fmt.Println("Converted integer:", i)
 ```
 - nil の error は成功したことを示し、 nilではない error は失敗したことを示す
 
+## Readers
+- io パッケージは、データストリームを読むことを表現する io.Reader インタフェースを規定している
+- Read は、データを与えられたバイトスライスへ入れ、入れたバイトのサイズとエラーの値を返します。 ストリームの終端は、 io.EOF のエラーで返す
+```go
+func (T) Read(b []byte) (n int, err error)
+```
