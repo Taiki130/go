@@ -917,3 +917,15 @@ type error interface {
     Error() string
 }
 ```
+
+- よく、関数は error 変数を返します。そして、呼び出し元はエラーが nil かどうかを確認することでエラーをハンドル(取り扱い)
+```go
+i, err := strconv.Atoi("42")
+if err != nil {
+    fmt.Printf("couldn't convert number: %v\n", err)
+    return
+}
+fmt.Println("Converted integer:", i)
+```
+- nil の error は成功したことを示し、 nilではない error は失敗したことを示す
+
