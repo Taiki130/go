@@ -935,3 +935,15 @@ fmt.Println("Converted integer:", i)
 ```go
 func (T) Read(b []byte) (n int, err error)
 ```
+
+## Images
+- image パッケージは、以下の Image インタフェースを定義
+```go
+package image
+
+type Image interface {
+    ColorModel() color.Model
+    Bounds() Rectangle
+    At(x, y int) color.Color
+}
+```
