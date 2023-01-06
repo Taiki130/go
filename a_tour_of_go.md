@@ -938,6 +938,8 @@ func (T) Read(b []byte) (n int, err error)
 
 ## Images
 - image パッケージは、以下の Image インタフェースを定義
+- Bounds メソッドの戻り値である Rectangle は、 image パッケージの image.Rectangle に定義がある
+- color.Color と color.Model は共にインタフェースだが、定義済みの color.RGBA と color.RGBAModel を使うことで、このインタフェースを無視できる
 ```go
 package image
 
