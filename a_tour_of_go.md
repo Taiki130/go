@@ -949,3 +949,25 @@ type Image interface {
     At(x, y int) color.Color
 }
 ```
+
+## Goroutines
+- goroutine (ゴルーチン)は、Goのランタイムに管理される軽量なスレッド
+```go
+go f(x, y, z)
+```
+- f , x , y , z の評価は、実行元(current)のgoroutineで実行され、 f の実行は、新しいgoroutineで実行される
+- goroutineは、同じアドレス空間で実行されるため、共有メモリへのアクセスは必ず同期する必要がある
+
+## Channels
+- チャネル( Channel )型は、チャネルオペレータの <- を用いて値の送受信ができる通り道
+```go
+ch <- v    // v をチャネル ch へ送信する
+v := <-ch  // ch から受信した変数を v へ割り当てる
+```
+- マップとスライスのように、チャネルは使う前に以下のように生成
+```go
+ch := make(chan int)
+```
+- 通常、片方が準備できるまで送受信はブロックされる
+- これにより、明確なロックや条件変数がなくても、goroutineの同期を可能にする
+
