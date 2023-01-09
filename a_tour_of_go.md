@@ -1050,3 +1050,20 @@ func main() {
 	fibonacci(c, quit)
 }
 ```
+
+## Default Selection
+- どの case も準備ができていないのであれば、 select の中の default が実行される
+```go
+select {
+case i := <-c:
+    // use i
+default:
+    // receiving from c would block
+}
+```
+
+## sync.Mutex
+- Goの標準ライブラリは、排他制御をsync.Mutexと次の二つのメソッドで提供する
+	- Lock
+	- Unlock
+
